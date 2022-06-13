@@ -1,0 +1,43 @@
+@model List<WebApplication18.Models.Customer>
+
+<div class="row mt-xl-5 mt-lg-5 mt-md-5 mt-sm-5 mb-xl-5 mb-lg-5 mb-md-5 mb-sm-5">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+        <a asp-action="BatchUserUpload" asp-controller="Home" class="btn btn-primary float-right">
+            Excel Dosyasını Yükle
+        </a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>Sıra</td>
+                    <td>Kimlik Numarası</td>
+                    <td>İsim</td>
+                    <td>Doğum Yeri</td>
+                    <td>Yaş</td>
+                    <td>Baba Adı</td>
+                    <td>Anne Adı</td>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model is IEnumerable<Customer>)
+                {
+                    @foreach (var Customer in Model)
+                    {
+                <tr>
+                    <td>@Customer.CustomerID</td>
+                    <td>@Customer.TC</td>
+                    <td>@Customer.AdSoyad</td>
+                    <td>@Customer.DogumYeri</td>
+                    <td>@Customer.DogumTarihi</td>
+                    <td>@Customer.BabaAdi</td>
+                    <td>@Customer.AnneAdi</td>
+                </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
